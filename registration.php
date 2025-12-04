@@ -42,10 +42,9 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
@@ -104,8 +103,8 @@
         }
 
     </style>
-</head>
-<body>
+    </head>
+    <body>
 
     <div>
         <form action="#" method="POST" enctype="multipart/form-data">
@@ -126,5 +125,5 @@
         </form>
     </div>
     
-</body>
+    </body>
 </html>

@@ -2,29 +2,22 @@
     include 'dbConnection.php';
 
     $id = $_GET['id'];
-
     $result = $conn->query("SELECT * FROM registrationdb WHERE id=$id");
-
     $userData = $result->fetch_assoc();
-
     $uoPic = $userData['profilePicture'];
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $uname = $_POST['user_name'];
         $uemail = $_POST['email'];
-
         $uproPic = '';
 
         if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === 0) {
- 
             $filepath = "usersprofilePic/";
             $uproPic = time() . "_" . basename($_FILES["profilePicture"]["name"]);
             $targetFile = $filepath . $uproPic;
- 
             if (!file_exists($filepath)) {
                 mkdir($filepath, 0777, true);
             }
- 
             move_uploaded_file($_FILES["profilePicture"]["tmp_name"], $targetFile);
 
         } else{
@@ -43,10 +36,7 @@
                 echo "Your password not match with comfirm password!!!";
                 // header("Location: updatebtn.php");
             }
-
     }
-
-
 
 ?>
 

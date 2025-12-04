@@ -2,31 +2,27 @@
 
 include 'dbConnection.php';
 
-// echo "skndksckd";
-
 $id = $_GET['id'];
-
 $result = $conn->query("SELECT *FROM form_database WHERE id=$id");
-
 $rowData = $result->fetch_assoc();
 
 // print_r($rowData);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
- 
-    $fname = $_POST['firstname'];
-    $lname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $age = $_POST['age'];
-    $mobileNo = $_POST['mo_number'];
-    $pdw = $_POST['password'];
-    $address = $_POST['address'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+        $fname = $_POST['firstname'];
+        $lname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $age = $_POST['age'];
+        $mobileNo = $_POST['mo_number'];
+        $pdw = $_POST['password'];
+        $address = $_POST['address'];
 
-    $sql = "UPDATE form_database SET firstname='$fname', lastname='$lname', email='$email', age='$age', mo_number='$mobileNo', password='$pdw', address='$address' WHERE id=$id";
-    $conn->query($sql);
-    header("Location: view.php");
- 
-}
+        $sql = "UPDATE form_database SET firstname='$fname', lastname='$lname', email='$email', age='$age', mo_number='$mobileNo', password='$pdw', address='$address' WHERE id=$id";
+        $conn->query($sql);
+        header("Location: view.php");
+    
+    }
 
 ?>
 
